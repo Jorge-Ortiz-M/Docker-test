@@ -21,6 +21,27 @@
     <%= form.text_field :email %>
   </div>
 
+  <hr>
+  
+  <div>
+    <%= form.fields_for :posts do |post_form| %>
+      <div>
+        <%= post_form.check_box :_destroy %>
+      </div>
+
+      <div>
+        <%= post_form.label :title %>
+        <%= post_form.text_field :title %>
+      </div>
+      <div>
+        <%= post_form.label :description %>
+        <%= post_form.text_area :description %>
+      </div>
+    <% end %>
+  </div>
+
+  <hr>
+
   <div>
     <%= form.submit %>
   </div>

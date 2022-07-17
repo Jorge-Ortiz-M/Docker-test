@@ -1,12 +1,18 @@
 <div id="<%= dom_id user %>">
   <p>
     <strong>Name:</strong>
-    <%= user.name %>
-  </p>
-
-  <p>
+    <%= user.name %> <br>
     <strong>Email:</strong>
     <%= user.email %>
   </p>
+
+  <div>
+  <% unless user.posts.empty? %>
+    <% user.posts.each do |post| %>
+      <%= post.title %>
+      <%= post.description %> <br>
+    <% end %>
+  <% end %>
+  </div>
 
 </div>

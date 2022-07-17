@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    2.times { @user.posts.build }
   end
 
   # GET /users/1/edit
@@ -65,6 +66,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :email)
+      params.require(:user).permit(:name, :email, posts_attributes: [:id, :title, :description, :_destroy])
     end
 end

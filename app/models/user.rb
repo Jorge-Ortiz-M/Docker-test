@@ -1,8 +1,4 @@
 class User < ApplicationRecord
-    
-    validate :name_with_jorge
-
-    def name_with_jorge
-        name === "Jorge" ? errors.add(:name, "Should not be Jorge") : nil
-    end
+    has_many :posts
+    accepts_nested_attributes_for :posts, allow_destroy: true
 end
